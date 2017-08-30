@@ -19,9 +19,14 @@ class Game
     until @fake_word.join('') == @word || strikes == 6
       guess_letter
 
+      if @input == @word
+        @fake_word = @word.split('')
+        break
+      end
+
       if !guess_is_a_single_letter(input)
         puts "\n"
-        puts 'Please guess only one letter!'
+        puts "\n\n\nPlease guess only one letter!"
         next
       end
 
@@ -43,11 +48,11 @@ class Game
   end
 
   def guess_letter
-    puts "\n"
+    puts "\n\n\n"
     puts 'Strikes: ' + strikes.to_s
     puts "\n"
     puts fake_word.join(' ')
-    puts 'Please guess a letter in the word: '
+    puts "Please guess a letter in the word(or the final word): "
     @input = gets.chomp
   end
 
@@ -55,7 +60,7 @@ class Game
     if strikes == 6
       puts "\n\nYou Lose!"
     elsif @fake_word.join('') == @word
-      puts "\n\nYOU WIN THE GAME!"
+      puts "\n\n*****YOU WIN THE GAME!*****"
     end
   end
 
