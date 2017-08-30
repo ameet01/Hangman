@@ -21,7 +21,7 @@ class Game
 
       if !guess_is_a_single_letter(input)
         puts "\n"
-        puts 'Please guess only one letter!!!!!!!!!!!!!!'
+        puts 'Please guess only one letter!'
         next
       end
 
@@ -55,7 +55,7 @@ class Game
     if strikes == 6
       puts "\n\nYou Lose!"
     elsif @fake_word.join('') == @word
-      puts "\n\nYOU WIN THE FUCKING GAME!"
+      puts "\n\nYOU WIN THE GAME!"
     end
   end
 
